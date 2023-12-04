@@ -1,0 +1,121 @@
+.item {
+    left: 0px;
+    padding: 20px;
+    display: flex;
+    transition: all 0.5s linear, background-color 0s;
+    width: 100%;
+}
+
+.item:hover {
+    background-color: #f6fbff;
+}
+
+.item .item-icon {
+    cursor: pointer;
+    height: 20px;
+    position: relative;
+    width: 20px;
+    z-index: 2;
+}
+
+.item .item-icon svg.completed path {
+    fill: #43efa9;
+}
+
+.item .item-icon:hover svg.completed path {
+    fill: black;
+}
+
+.item .item-icon svg.uncompleted path {
+    fill: black;
+}
+
+.item .item-icon:hover svg.uncompleted path {
+    fill: #43efa9;
+}
+
+.item .item-name {
+    margin-left: 20px;
+    margin-right: auto;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item .item-name .titleInput {
+    border: none;
+    background: none;
+    font-family: inherit;
+    line-height: 20px;
+    color: black;
+    font-size: 1em;
+    font-weight: 400;
+    padding: 0;
+    width: 100%;
+}
+
+.item .item-name h1 {
+    position: relative;
+    color: black;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0px;
+    transition: opacity .2s linear;
+    transition: color .2s linear;
+}
+
+.item.completed .item-name h1 {
+    color: #c8c8c8;
+    opacity: 0.6;
+}
+
+.item.completed .item-name h1:before {
+	content:'';
+	position:absolute;
+	top:50%;
+	left:-.5rem;
+	display:block;
+	width:0%;
+	height:1px;
+	background:#FFF;
+	animation:strikeitem .4s ease-out 0s forwards;
+}
+
+@keyframes strikeitem {
+	to { width:calc(100% + 1rem); }
+}
+
+.item .item-edit, .item .item-delete {
+    cursor: pointer;
+    height: 18px;
+    line-height: 18px;
+    margin-left: 20px;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    width: 18px;
+    z-index: 2;
+}
+
+.item.completed:hover .item-edit {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) scale(0.25);
+}
+
+.item:hover .item-edit, .item:hover .item-delete {
+    opacity: 1;
+}
+
+.item .item-edit svg path, .item .item-delete svg path {
+    fill: black;
+}
+
+.item .item-edit:hover svg path {
+    fill: #43efa9;
+}
+
+.item .item-delete:hover svg path {
+    fill: red;
+}

@@ -1,0 +1,31 @@
+.add-item-input {
+    display: flex;
+    padding: 20px;
+    padding-left: 40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.add-item-input svg {
+    height: 20px;
+    margin-right: 20px;
+    width: 20px;
+}
+.add-item-input svg path {
+    fill: gray;
+}
+.add-item-input input {
+    border: 0px;
+    color: gray;
+    font-size: 1em;
+    font-weight: 400;
+    height: 20px;
+    outline: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .add-item-input {
+        padding-left: 20px;
+    }
+  }

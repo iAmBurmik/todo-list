@@ -1,0 +1,32 @@
+.pagination {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.pagination .page {
+    border: none;
+    background: none;
+    width: 27px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.pagination .page.inactive:hover {
+    background-color:#f3f9fd;
+}
+
+.pagination .page.active:hover {
+    background-color:rgb(209, 129, 255);
+}
+
+.pagination .prevNextButtons:hover {
+    color: #c8c8c8;
+}
+
+.pagination .active {
+    border-radius: 50%;
+    background-color: rgba(223,173,252,1);
+    color: white;
+    transition: all 0.3s linear;
+    margin: 0 5px;
+}

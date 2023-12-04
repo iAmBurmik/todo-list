@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { AddTodoInput } from './components/AddTodoInput';
+import { TodoList } from './components/TodoList';
+import { Loader } from './components/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTodos } from './store/todoSlice';
 
 function App() {
+
+  const dispatch = useDispatch();
+  const {status, error} = useSelector(state => state.todos) // отримуєм статус та помилку з стану redux
+
+  useEffect(() => {
+    dispatch(fetchTodos()); // отримуєм наші todos
+  }, [dispatch]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <AddTodoInput/> 
+        {status === 'loading' && <Loader/>}
+        {error && <h2>{error}</h2>}
+        <TodoList status={status}/>
     </div>
   );
 }

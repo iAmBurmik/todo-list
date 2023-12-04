@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  todo-list:
+    build: .
+    container_name: todo-list_c
+    ports:
+      - '3000:3000'
+    volumes:
+      - /Users/nikitaburma/Программирование/React/Обучение/todo-list:/app
+      - /Users/nikitaburma/Программирование/React/Обучение/todo-list/node_modules:/app/node_modules
